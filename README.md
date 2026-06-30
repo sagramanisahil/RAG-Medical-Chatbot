@@ -1,6 +1,6 @@
 🩺 MediBot — RAG-Powered Medical Chatbot
 
-MediBot is a Retrieval-Augmented Generation (RAG) chatbot that answers medical questions by reading and reasoning over your own medical PDF documents — instead of relying purely on what a language model "remembers" from training. It retrieves the most relevant passages from a local knowledge base and uses a large language model to turn those passages into a clear, detailed answer.
+MediBot is a Retrieval-Augmented Generation (RAG) chatbot that answers medical questions by reading and reasoning over your own medical PDF documents instead of relying purely on what a language model "remembers" from training. It retrieves the most relevant passages from a local knowledge base and uses a large language model to turn those passages into a clear, detailed answer.
 
 
 Table of Contents
@@ -26,12 +26,12 @@ General-purpose chatbots like a base LLM are great conversationalists, but they 
 
 
 They hallucinate. If they don't know an answer, they often make one up confidently instead of saying "I don't know."
-They don't know your specific sources. A doctor, student, or researcher usually wants answers grounded in a specific trusted reference (a textbook, a clinical manual, a research PDF) — not a vague, generic answer from the entire internet.
+They don't know your specific sources. A doctor, student, or researcher usually wants answers grounded in a specific trusted reference (a textbook, a clinical manual, a research PDF) not a vague, generic answer from the entire internet.
 
 
 I built MediBot to solve this with Retrieval-Augmented Generation (RAG): instead of asking the LLM to answer from memory, I first retrieve the most relevant chunks of text from a curated set of medical PDFs, and then force the LLM to answer only using that retrieved context. If the answer isn't in the documents, the bot is instructed to say "I don't know" rather than invent information.
 
-This project was also a way to learn and demonstrate the full RAG pipeline end-to-end — document ingestion, chunking, embeddings, vector search, prompt engineering, and a usable chat UI — using free/open-source tools wherever possible.
+This project was also a way to learn and demonstrate the full RAG pipeline end-to-end — document ingestion, chunking, embeddings, vector search, prompt engineering, and a usable chat UI using free/open-source tools wherever possible.
 
 
 What is RAG (and why use it here)
@@ -43,7 +43,7 @@ Retrieval: A search step that finds the most relevant pieces of text from a know
 Generation: An LLM that reads the retrieved text and generates a natural-language answer grounded in it.
 
 
-Instead of fine-tuning a model (expensive, slow, and quickly outdated), RAG lets you swap or update the knowledge base any time — just add new PDFs and rebuild the vector index. The LLM itself never needs to be retrained.
+Instead of fine-tuning a model (expensive, slow, and quickly outdated), RAG lets you swap or update the knowledge base any time just add new PDFs and rebuild the vector index. The LLM itself never needs to be retrained.
 
 For a medical use case specifically, this matters because:
 

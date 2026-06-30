@@ -1,4 +1,6 @@
-🩺 MediBot — RAG-Powered Medical Chatbot
+🩺 MediBot — RAG-Powered Medical Chatbot   
+
+Live Demo: https://rag-medical-chatbot-fqpgbpjmszsi4hkuu42q7p.streamlit.app/
 
 MediBot is a Retrieval-Augmented Generation (RAG) chatbot that answers medical questions by reading and reasoning over your own medical PDF documents instead of relying purely on what a language model "remembers" from training. It retrieves the most relevant passages from a local knowledge base and uses a large language model to turn those passages into a clear, detailed answer.
 

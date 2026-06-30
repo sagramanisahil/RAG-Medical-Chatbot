@@ -20,17 +20,20 @@ def load_llm():
     )
     return llm
 
-
 CUSTOM_PROMPT_TEMPLATE = """
-Use the pieces of information provided in the context to answer user's question.
-If you dont know the answer, just say that you dont know, dont try to make up an answer. 
-Dont provide anything out of the given context
+            Use the pieces of information provided in the context to answer the user's question in detail.
 
-Context: {context}
-Question: {question}
+            Instructions:
+            - Answer in 4-6 clear, well-structured sentences or bullet points.
+            - Include relevant clinical details, causes, symptoms, or treatment steps if present in the context.
+            - If the answer is not in the context, say "I don't know" — do not make up information.
+            - Do not include anything outside the given context.
 
-Start the answer directly. No small talk please.
-"""
+            Context: {context}
+            Question: {question}
+
+            Answer in detail:
+        """
 
 def set_custom_prompt(custom_prompt_template):
     prompt = PromptTemplate(

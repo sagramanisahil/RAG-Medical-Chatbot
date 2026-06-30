@@ -48,7 +48,7 @@ db = FAISS.load_local(DB_FAISS_PATH, embedding_model, allow_dangerous_deserializ
 qa_chain = RetrievalQA.from_chain_type(
     llm=load_llm(),
     chain_type="stuff",
-    retriever=db.as_retriever(search_kwargs={'k': 3}),
+    retriever=db.as_retriever(search_kwargs={'k': 10}),
     return_source_documents=True,
     chain_type_kwargs={'prompt': set_custom_prompt(CUSTOM_PROMPT_TEMPLATE)}
 )

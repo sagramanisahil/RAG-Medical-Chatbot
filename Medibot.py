@@ -54,15 +54,19 @@ def main():
         st.session_state.messages.append({'role':'user', 'content': prompt})
 
         CUSTOM_PROMPT_TEMPLATE = """
-                Use the pieces of information provided in the context to answer user's question.
-                If you dont know the answer, just say that you dont know, dont try to make up an answer. 
-                Dont provide anything out of the given context
+            Use the pieces of information provided in the context to answer the user's question in detail.
 
-                Context: {context}
-                Question: {question}
+            Instructions:
+            - Answer in 4-6 clear, well-structured sentences or bullet points.
+            - Include relevant clinical details, causes, symptoms, or treatment steps if present in the context.
+            - If the answer is not in the context, say "I don't know" — do not make up information.
+            - Do not include anything outside the given context.
 
-                Start the answer directly. No small talk please.
-                """
+            Context: {context}
+            Question: {question}
+
+            Answer in detail:
+        """
         
         #HUGGINGFACE_REPO_ID="mistralai/Mistral-7B-Instruct-v0.3" # PAID
         #HF_TOKEN=os.environ.get("HF_TOKEN")  
@@ -81,7 +85,7 @@ def main():
                     groq_api_key=os.environ["GROQ_API_KEY"],
                 ),
                 chain_type="stuff",
-                retriever=vectorstore.as_retriever(search_kwargs={'k':3}),
+                retriever=vectorstore.as_retriever(search_kwargs={'k': 10}),
                 return_source_documents=True,
                 chain_type_kwargs={'prompt': set_custom_prompt(CUSTOM_PROMPT_TEMPLATE)}
             )

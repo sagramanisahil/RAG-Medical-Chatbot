@@ -3,7 +3,7 @@
 Live Demo: https://rag-medical-chatbot-fqpgbpjmszsi4hkuu42q7p.streamlit.app/
 
 Reference Books : MEDICINE - Irfan Masood Latest.pdf
-                  The_GALE_ENCYCLOPEDIA_of_MEDICINE_SECOND.pdf
+                         & The_GALE_ENCYCLOPEDIA_of_MEDICINE_SECOND.pdf
 
 MediBot is a Retrieval-Augmented Generation (RAG) chatbot that answers medical questions by reading and reasoning over your own medical PDF documents instead of relying purely on what a language model "remembers" from training. It retrieves the most relevant passages from a local knowledge base and uses a large language model to turn those passages into a clear, detailed answer.
 
